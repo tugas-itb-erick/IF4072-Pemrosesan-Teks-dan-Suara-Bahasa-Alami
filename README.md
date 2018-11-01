@@ -1,4 +1,4 @@
-# tbd
+# ig-sentiment-analyzer
 IF4072 Natural Language &amp; Text Processing
 
 **Link GDocs (email std)**
