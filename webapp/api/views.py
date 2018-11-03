@@ -46,29 +46,46 @@ def parse_users(users):
     for user in users:
         new_users.append(parse_user(user))
     return new_users
+
 def parse_user(user):
-    attr = ["pk", "username", "full_name", "is_private", "profile_picture"]
+    attr = ["id", "pk", "username", "full_name", "is_private", "profile_picture"]
     user_dict = {}
     for key, val in user.items():
         if key in attr:
             user_dict[key] = val
     return user_dict
 
-def user(request, user_id): 
+def user(request, username): 
+    api = create_api_client(request)
+    user_info = api.user_info2(username)
+    user = parse_user(user_info)
+    return HttpResponse(content=json.dumps(user), content_type="application/json")
+
+def user_feed(request, user_id): 
     api = create_api_client(request)
     user_feed = api.user_feed(user_id) # TODO: Pagination
-    return HttpResponse(content=json.dumps(parse_user_feed(api, user_feed)), content_type="application/json")
+    user_feed = parse_user_feed(api, user_feed)
+    # analyzed_feed = analyze_feed(user_feed)
+    return HttpResponse(content=json.dumps(user_feed), content_type="application/json")
 
 def parse_user_feed(api, user_feed):
-    # get all media's shortcode
-    shortcodes = []
+    parsed_feed = []
+    # get all media's shortcode & comments
     for post in user_feed:
-        shortcodes.append(post["node"]["shortcode"])
-    # get all media's comments
-    comments = []
-    for shortcode in shortcodes:
-        comments.append(api.media_comments(shortcode)) # TODO: Pagination
-    return comments
+        shortcode = post["node"]["shortcode"]
+        parsed_feed.append({
+            "timestamp": post["node"]["taken_at_timestamp"],
+            "shortcode": shortcode, 
+            "image_url": post["node"]["thumbnail_src"],
+            "caption": post["node"]["caption"]["text"],
+            "type": post["node"]["type"],
+            "comments": api.media_comments(shortcode) # TODO: Pagination
+        })
+    return parsed_feed
+
+def analyze_feed(user_feed):
+    # pake model
+    return user_feed
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):
