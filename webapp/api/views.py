@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from instagram_web_api import Client
 from . import errors
-from .model.enums.search_type import SeachType
+from .enums.search_type import SeachType
 
 def index(request):    
     api = create_api_client(request)
@@ -56,12 +56,19 @@ def parse_user(user):
 
 def user(request, user_id): 
     api = create_api_client(request)
-    user_feed = api.user_feed(user_id)
-    parse_user_feed(user_feed)
-    return HttpResponse(json.dumps(user_feed))
+    user_feed = api.user_feed(user_id) # TODO: Pagination
+    return HttpResponse(content=json.dumps(parse_user_feed(api, user_feed)), content_type="application/json")
 
-def parse_user_feed(user_feed):
-    pass
+def parse_user_feed(api, user_feed):
+    # get all media's shortcode
+    shortcodes = []
+    for post in user_feed:
+        shortcodes.append(post["node"]["shortcode"])
+    # get all media's comments
+    comments = []
+    for shortcode in shortcodes:
+        comments.append(api.media_comments(shortcode)) # TODO: Pagination
+    return comments
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):
