@@ -1,5 +1,5 @@
 """
-WSGI config for ig_sentiment_analyzer project.
+WSGI config for hate_speech_analyzer project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ig_sentiment_analyzer.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hate_speech_analyzer.settings')
 
 application = get_wsgi_application()
