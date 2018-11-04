@@ -1,2 +1,1 @@
 Django==2.1.2
-git+https://git@github.com/ping/instagram_private_api.git==1.5.7
