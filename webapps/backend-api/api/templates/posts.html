@@ -21,10 +21,9 @@
         </div>
     </div>
     <div class="posts">
-        {{ media }}
         {% for post in edge_owner_to_timeline_media.media %}
             <div class="post-pic">
-                <img src="{{ post.display_url }}">
+                <img src="{{ post.display_url }}" class="w3-border">
                 <div class="middle">
                     <a class="text" href="/media/{{ post.shortcode }}">analyze</a>
                 </div>

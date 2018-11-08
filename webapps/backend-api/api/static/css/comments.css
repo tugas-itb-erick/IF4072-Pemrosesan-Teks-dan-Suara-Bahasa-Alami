@@ -23,12 +23,13 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    background-color: white;
 }
 
 .comments-container .post .post-pic img {
-    width: 500px;
+    width: auto;
     height: 500px;
-    border-radius: 5%;
+    padding: 10px;
 }
 
 .comments-container .post .post-caption {
@@ -48,7 +49,11 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    border: 1px solid gainsboro;
+    background-color: white;
+    border-left: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 30px;
 }
 
 .comments-container .comments .comment {
@@ -57,6 +62,7 @@
     align-items: center;
     flex-direction: row;
     padding: 30px;
+    border-top: 1px solid gainsboro;
 }
 
 .comments-container .comments .comment .comment-left {
@@ -94,6 +100,7 @@
     font-weight: 100;
     font-size: 1.2rem;
     font-family: 'Liberation', serif;
+    color: #007bff;
 }
 
 .comments-container .comments .comment .comment-middle .comment-content {

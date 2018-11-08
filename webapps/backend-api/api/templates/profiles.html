@@ -17,9 +17,9 @@
                 </span>
                 <span class="profile-username">
                     {% if profile.is_private %}
-                        {{ profile.username }}
+                        @{{ profile.username }}
                     {% else %}
-                        <a href="/user/{{ profile.username }}">{{ profile.username }}</a>
+                        <a href="/user/{{ profile.username }}">@{{ profile.username }}</a>
                     {% endif %}
                 </span>
             </div>
