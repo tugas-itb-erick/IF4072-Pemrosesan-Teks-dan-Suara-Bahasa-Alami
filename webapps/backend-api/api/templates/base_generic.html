@@ -8,12 +8,13 @@
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/profiles.css' %}">
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
         $('#button-username').click(function(e) {  
             var input_username = $("#input-username").val();
-            window.location.replace("./user/" + input_username);
+            window.location.replace("/api/search?query=" + input_username + "&type=username");
         });
     });
     </script> 

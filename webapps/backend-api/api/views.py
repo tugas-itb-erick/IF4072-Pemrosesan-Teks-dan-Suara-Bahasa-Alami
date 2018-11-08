@@ -20,9 +20,12 @@ def search(request):
     api = create_api_client(request)
     if search_type == SeachType.TAG:
         search_result = search_by_tag(api, query)
+        # return render(request, 'posts.html', context=json.dumps(search_result))
+        return ""
     else:
         search_result = search_by_username(api, query)
-    return HttpResponse(content=json.dumps(search_result), content_type="application/json")
+        return render(request, 'profiles.html', { 'query': query, 'profiles': search_result })
+    # return HttpResponse(content=json.dumps(search_result), content_type="application/json")
 
 def validate_search(request):
     query = request.GET.get("query", "")
@@ -63,7 +66,7 @@ def parse_edge_timeline_media(edge):
         "created_time": el.get("node", {}).get("taken_at_timestamp"), 
         "shortcode": el.get("node", {}).get("shortcode"), 
         "display_url": el.get("node", {}).get("display_url")
-        } for el in edge.get("edges")
+        } for el in edge.get("edges", {})
     ]
     return new_edge
 

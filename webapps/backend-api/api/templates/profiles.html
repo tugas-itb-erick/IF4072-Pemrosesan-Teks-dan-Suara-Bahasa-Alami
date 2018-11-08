@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block content %}
+<div class="profiles-container">
+    <h1>Results for '{{ query }}'</h1>
+    <div class="profiles-row">
+        {% for profile in profiles %}
+            <div class="profile">
+                <span class="profile-pic">
+                    <img src="{{ profile.profile_picture }}">
+                </span>
+                <span class="profile-name">
+                    {{ profile.full_name }}
+                </span>
+                <span class="profile-username">
+                    {% if profile.is_private %}
+                        {{ profile.username }}
+                    {% else %}
+                        <a href="/api/user/{{ profile.username }}">{{ profile.username }}</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,9 +1,4 @@
-.title {
-    font-weight: 100;
-    color: white;
-}
-
-.teams-container {
+.profiles-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,9 +6,11 @@
     position: relative;
     width: 100%;
     height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-.teams-container h1 {
+.profiles-container h1 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -22,52 +19,48 @@
     margin-top: 30px; 
 }
 
-.teams {
+.profiles-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profiles-row .profile {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.profiles-row .profile .profile-pic {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: row;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.team {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.team .team-pic {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
 }
 
-.team .team-name {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    font-weight: 200;
-    font-size: 1.5rem;
-    font-family: serif;
-    margin-top: 20px;
-}
-
-.team .team-nim {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    font-weight: 200;
-    font-size: 1.2rem;
-    font-family: serif;
-}
-
-.team-pic img {
+.profiles-row .profile .profile-pic img {
     border-radius: 50%;
+}
+
+.profiles-row .profile .profile-name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.profiles-row .profile .profile-username {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 5px;
 }
