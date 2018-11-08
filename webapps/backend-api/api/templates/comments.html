@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block content %}
+<div class="comments-container">
+    <div class="post">
+        <div class="post-pic">
+            <img src="{{ display_url }}">
+        </div>
+        <div class="post-caption">
+            {{ caption }}
+        </div>
+    </div>
+    <div class="comments">
+        {% for comment in edge_media_to_comment.comments %}
+            <div class="comment">
+                <div class="comment-left">
+                    <span class="comment-pic">
+                        <img src="{{ comment.comment.profile_picture }}">
+                    </span>
+                </div>
+                <div class="comment-middle">
+                    <span class="comment-username">
+                        <a href="/user/{{ comment.comment.username }}">@{{ comment.comment.username }}</a>
+                    </span>
+                    <span class="comment-content">
+                        {{ comment.comment.text }}
+                    </span>
+                </div>
+                <div class="comment-right">
+                    {% if comment.comment.hate_score.religion %}
+                        {% load static %}
+                        <img src="{% static 'img/religion.png' %}" class="analysis-bad">
+                    {% else %}
+                        {% load static %}
+                        <img src="{% static 'img/good.png' %}" class="analysis-good">
+                    {% endif %}
+
+                    {% if comment.comment.hate_score.race %}
+                        {% load static %}
+                        <img src="{% static 'img/race.png' %}" class="analysis-bad">
+                    {% else %}
+                        {% load static %}    
+                        <img src="{% static 'img/good.png' %}" class="analysis-good">
+                    {% endif %}
+                    
+                    {% if comment.comment.hate_score.physic %}
+                        {% load static %}
+                        <img src="{% static 'img/physic.png' %}" class="analysis-bad">
+                    {% else %}
+                        {% load static %}
+                        <img src="{% static 'img/good.png' %}" class="analysis-good">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,11 @@
-.title {
-    font-weight: 100;
-    color: white;
+@import "fonts.css";
+
+body {
+    background-color: honeydew;
+}
+
+.navbar-container {
+    margin-bottom: 70px;
 }
 
 .teams-container {
@@ -15,11 +20,41 @@
 
 .teams-container h1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    font-family: serif;
-    margin-top: 30px; 
+    font-family: 'Liberation', serif;
+    margin-top: 30px;
+    font-size: 4rem;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+}
+
+.title {
+    font-weight: 100;
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-family: 'Chivo';
+}
+
+#input-username {
+    font-family: 'Chivo';
+}
+
+#button-username {
+    font-family: 'Chivo';
 }
 
 .teams {
@@ -54,8 +89,18 @@
     flex-direction: column;
     font-weight: 200;
     font-size: 1.5rem;
-    font-family: serif;
+    font-family: 'Liberation', serif;
     margin-top: 20px;
+}
+
+.team .team-username {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 200;
+    font-size: 1.2rem;
+    font-family: 'Liberation', serif;
 }
 
 .team .team-nim {
@@ -65,9 +110,11 @@
     flex-direction: column;
     font-weight: 200;
     font-size: 1.2rem;
-    font-family: serif;
+    font-family: 'Liberation', serif;
 }
 
 .team-pic img {
     border-radius: 50%;
+    width: 400px;
+    height: 400px;
 }

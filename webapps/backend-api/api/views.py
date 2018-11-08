@@ -20,8 +20,7 @@ def search(request):
     api = create_api_client(request)
     if search_type == SeachType.TAG:
         search_result = search_by_tag(api, query)
-        # return render(request, 'posts.html', context=json.dumps(search_result))
-        return ""
+        return render(request, 'posts.html', context=json.dumps(search_result))
     else:
         search_result = search_by_username(api, query)
         return render(request, 'profiles.html', { 'query': query, 'profiles': search_result })
@@ -82,7 +81,8 @@ def user_media(request, shortcode):
     api = create_api_client(request)
     media = api.media_info2(shortcode)
     media = parse_user_media(media)
-    return HttpResponse(content=json.dumps(media), content_type="application/json")
+    return render(request, 'comments.html', context=media)
+    # return HttpResponse(content=json.dumps(media), content_type="application/json")
 
 def parse_user_media(media):
     attr = ["created_time", "shortcode", "display_url"]

@@ -1,0 +1,145 @@
+@import "fonts.css";
+
+.comments-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.comments-container .post {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.comments-container .post .post-pic {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.comments-container .post .post-pic img {
+    width: 500px;
+    height: 500px;
+    border-radius: 5%;
+}
+
+.comments-container .post .post-caption {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    font-weight: 100;
+    font-size: 1.5rem;
+    font-family: 'Liberation', serif;
+    width: 500px;
+}
+
+.comments-container .comments {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    border: 1px solid gainsboro;
+}
+
+.comments-container .comments .comment {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: 30px;
+}
+
+.comments-container .comments .comment .comment-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.comments-container .comments .comment .comment-left .comment-pic {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.comments-container .comments .comment .comment-left .comment-pic img {
+    border-radius: 50%;
+}
+
+.comments-container .comments .comment .comment-middle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 800px;
+    margin-left: 30px;
+}
+
+.comments-container .comments .comment .comment-middle .comment-username {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 1.2rem;
+    font-family: 'Liberation', serif;
+}
+
+.comments-container .comments .comment .comment-middle .comment-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    font-weight: 100;
+    font-size: 1.5rem;
+    font-family: 'Liberation', serif;
+}
+
+.comments-container .comments .comment .comment-right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    font-weight: 100;
+    font-size: 1.2rem;
+    font-family: 'Liberation', serif'';
+}
+
+.comments-container .comments .comment .comment-right .analysis-good {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 5px;
+    border: 5px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #6AC259;
+    width: 75px;
+    height: 75px;
+}
+
+.comments-container .comments .comment .comment-right .analysis-bad {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 5px;
+    border: 5px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: red;
+    width: 75px;
+    height: 75px;
+}

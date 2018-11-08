@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Arcon";
+    src: url("../fonts/Arcon-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Liberation";
+    src: url("../fonts/LiberationSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Chivo";
+    src: url("../fonts/Chivo-Light.ttf");
+}
