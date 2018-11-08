@@ -8,7 +8,8 @@ from .enums.search_type import SeachType
 
 def index(request):    
     api = create_api_client(request)
-    return HttpResponse(api.settings) # serialize byte??
+    return render(request, 'index.html')
+    # return HttpResponse(api.settings) # serialize byte??
 
 def search(request):
     try:

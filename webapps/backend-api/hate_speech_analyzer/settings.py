@@ -25,7 +25,7 @@ SECRET_KEY = 'gi16v6pcuz_b76xv=f-b%yxyxzer1butr1vcr(6!@qo%#+@vgu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
 
 
 # Application definition
@@ -54,7 +54,9 @@ ROOT_URLCONF = 'hate_speech_analyzer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'api/templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,6 +67,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "api/static")
 ]
 
 WSGI_APPLICATION = 'hate_speech_analyzer.wsgi.application'

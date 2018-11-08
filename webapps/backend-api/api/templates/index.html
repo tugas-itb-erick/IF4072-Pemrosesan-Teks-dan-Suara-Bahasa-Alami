@@ -1,0 +1,42 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <div class="teams">
+    <div class="team">
+      <span class="team-pic">
+        {% load static %}
+        <img src="{% static 'img/erick.jpg' %}">
+      </span>
+      <span class="team-name">
+        Erick Wijaya
+      </span>
+      <span class="team-nim">
+        13515057
+      </span>
+    </div>
+    <div class="team">
+      <span class="team-pic">
+        {% load static %}
+        <img src="{% static 'img/dayu.jpg' %}">
+      </span>
+      <span class="team-name">
+        Ida Ayu Putu Ari Crisdayanti
+      </span>
+      <span class="team-nim">
+        13515067
+      </span>
+    </div>
+    <div class="team">
+      <span class="team-pic">
+        {% load static %}
+        <img src="{% static 'img/rachel.png' %}">
+      </span>
+      <span class="team-name">
+        Rachel Sidney Devianti
+      </span>
+      <span class="team-nim">
+        13515124
+      </span>
+    </div>
+  </div>
+{% endblock %}
