@@ -49,12 +49,23 @@ def parse_users(users):
     return new_users
 
 def parse_user(user):
-    attr = ["id", "pk", "username", "full_name", "is_private", "profile_picture", "edge_owner_to_timeline_media"]
+    attr = ["id", "pk", "username", "full_name", "is_private", "profile_picture"]
     user_dict = {}
     for key, val in user.items():
         if key in attr:
             user_dict[key] = val
+    user_dict["edge_owner_to_timeline_media"] = parse_edge_timeline_media(user.get("edge_owner_to_timeline_media", {}))
     return user_dict
+
+def parse_edge_timeline_media(edge):
+    new_edge = {"count": edge.get("count"), "page_info": edge.get("page_info")}
+    new_edge["media"] = [{
+        "created_time": el.get("node", {}).get("taken_at_timestamp"), 
+        "shortcode": el.get("node", {}).get("shortcode"), 
+        "display_url": el.get("node", {}).get("display_url")
+        } for el in edge.get("edges")
+    ]
+    return new_edge
 
 def user(request, username): 
     api = create_api_client(request)
@@ -74,8 +85,8 @@ def parse_user_media(media):
         if key in attr:
             media_dict[key] = val
     media_dict["caption"] = media.get("caption", {}).get("text")
-    media_dict["carousel_display_urls"] = parse_carousel(media.get("carousel_media"))
-    media_dict["edge_media_to_comment"] = parse_comments(media.get("edge_media_to_comment"))
+    media_dict["carousel_display_urls"] = parse_carousel(media.get("carousel_media", {}))
+    media_dict["edge_media_to_comment"] = parse_comments(media.get("edge_media_to_comment", {}))
     return media_dict
 
 def parse_carousel(carousel):
