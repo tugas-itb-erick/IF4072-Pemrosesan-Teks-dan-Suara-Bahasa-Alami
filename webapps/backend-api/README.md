@@ -18,8 +18,8 @@ Run```python manage.py runserver <HOST:PORT>```. The API will be running on HOST
 
 ## API Reference
 1. GET ```/api/search?query=[string]&type=[username|tag]``` - Perform search by name/tag
-2. GET ```/api/user/<username>``` - Get user info
-3. GET ```/api/user/<user_id>/feed``` - Get user feed (comments with analysis result)
+2. GET ```/api/user/<username>``` - Get user info and media shortcodes
+3. GET ```/api/media/<shortcode>``` - Get media info and analyzer results
 
 ## Response Example
 GET ```http://0.0.0.0:8000/api/search/?query=crahels&type=username```
@@ -34,29 +34,113 @@ GET ```http://0.0.0.0:8000/api/search/?query=crahels&type=username```
 GET ```http://0.0.0.0:8000/api/user/crahels/```
 ```json
 {
-  "full_name": "Rachel Sidney", 
-  "id": "281956222", 
-  "is_private": false, 
-  "username": "crahels", 
-  "profile_picture": "https://scontent-sin2-2.cdninstagram.com/vp/253b5d2ea2ee4b3c8b605729dbb3a5a0/5C71630F/t51.2885-19/s150x150/28427463_1636182853156624_1578679027089014784_n.jpg"
+  "full_name": "Rachel Sidney",
+  "id": "281956222",
+  "is_private": false,
+  "username": "crahels",
+  "profile_picture": "https://scontent-sin6-1.cdninstagram.com/vp/253b5d2ea2ee4b3c8b605729dbb3a5a0/5C71630F/t51.2885-19/s150x150/28427463_1636182853156624_1578679027089014784_n.jpg",
+  "edge_owner_to_timeline_media": {
+    "count": 1,
+    "page_info": {
+      "has_next_page": false,
+      "end_cursor": null
+    },
+    "media": [
+      {
+        "created_time": 1504255022,
+        "shortcode": "BYfe__ADtT2",
+        "display_url": "https://scontent-sin6-1.cdninstagram.com/vp/e34022106efa00f896ad4955e4d4c31e/5C70C084/t51.2885-15/e35/21294305_323883801406638_9060648787004882944_n.jpg"
+      }
+    ]
+  }
 }
 ```
 
-GET ```http://0.0.0.0:8000/api/user/604334652/feed```
+GET ```http://0.0.0.0:8000/api/media/BYfe__ADtT2```
 ```json
-[
-  {
-    "timestamp": 1391349939, "shortcode": "j6ppNVSLdh", "image_url": "https://scontent-sin2-2.cdninstagram.com/vp/a9b2a968c0eedf4645dcf1ac3a225db8/5C6B3BA7/t51.2885-15/e15/927850_397727170370929_836143702_n.jpg", "caption": "siap untuk dibedah bsk..", "type": "image", 
+{
+  "shortcode": "BYfe__ADtT2",
+  "display_url": "https://scontent-sin6-1.cdninstagram.com/vp/e34022106efa00f896ad4955e4d4c31e/5C70C084/t51.2885-15/e35/21294305_323883801406638_9060648787004882944_n.jpg",
+  "created_time": "1504255022",
+  "caption": "A ship is always safe at shore but that is not what it's built for. #tb #bali #indonesia",
+  "carousel_display_urls": [
+    "https://scontent-sin6-1.cdninstagram.com/vp/e34022106efa00f896ad4955e4d4c31e/5C70C084/t51.2885-15/e35/21294305_323883801406638_9060648787004882944_n.jpg",
+    "https://scontent-sin6-1.cdninstagram.com/vp/b5bfd294e6ebd341f94e33cefe517491/5C7406F5/t51.2885-15/e35/21227457_1892651334084067_5067138523887304704_n.jpg",
+    "https://scontent-sin6-1.cdninstagram.com/vp/d745880a5e0674d12e840c22c0660889/5C87A6E5/t51.2885-15/e35/21149082_1817627091881280_9222357063068286976_n.jpg"
+  ],
+  "edge_media_to_comment": {
+    "count": 5,
+    "page_info": {
+      "has_next_page": false,
+      "end_cursor": null
+    },
     "comments": [
-      {"id": "17845325281046653", "text": "waduh", "created_at": 1391351753, "owner": {"id": "422415301", "profile_pic_url": "https://scontent-sin2-2.cdninstagram.com/vp/9886ce0f57fb0771c39b20057d989c50/5C6D80FC/t51.2885-19/s150x150/14134885_1084812971610814_2063615205_a.jpg", "username": "andriyanye"}, "created_time": "1391351753", "from": {"id": "422415301", "profile_picture": "https://scontent-sin2-2.cdninstagram.com/vp/9886ce0f57fb0771c39b20057d989c50/5C6D80FC/t51.2885-19/s150x150/14134885_1084812971610814_2063615205_a.jpg", "username": "andriyanye", "full_name": ""}}, 
-      {"id": "17845503532046653", "text": "kasihan yg udah RIP", "created_at": 1391421478, "owner": {"id": "180022196", "profile_pic_url": "https://scontent-sin2-2.cdninstagram.com/vp/80b536beebba8ce187c0ef686b06f99b/5C722A6E/t51.2885-19/s150x150/20686654_1429565167151376_2762488398890401792_a.jpg", "username": "jesslynsulaiman"}, "created_time": "1391421478", "from": {"id": "180022196", "profile_picture": "https://scontent-sin2-2.cdninstagram.com/vp/80b536beebba8ce187c0ef686b06f99b/5C722A6E/t51.2885-19/s150x150/20686654_1429565167151376_2762488398890401792_a.jpg", "username": "jesslynsulaiman", "full_name": ""}}
-    ]
-  }, 
-  {
-    "timestamp": 1381562688, "shortcode": "fW98VKSLcY", "image_url": "https://scontent-sin2-2.cdninstagram.com/vp/63631b83a6d840a2c15b4b44fdc1ec35/5BE0DEF7/t51.2885-15/e15/11350728_416621895211665_1733837989_n.jpg", "caption": "My first instavideo #likeforlike #likeforfollow", "type": "video", 
-    "comments": [
-      {"id": "17845230715046653", "text": "Suaranya knp gitu? @wijayaerick", "created_at": 1381575194, "owner": {"id": "15386801", "profile_pic_url": "https://scontent-sin2-2.cdninstagram.com/vp/df0e87dbd8eb0770a7bed7cff5535bbf/5C74C2B1/t51.2885-19/s150x150/36054632_224960871562029_8131916779883593728_n.jpg", "username": "gebbytrivena"}, "created_time": "1381575194", "from": {"id": "15386801", "profile_picture": "https://scontent-sin2-2.cdninstagram.com/vp/df0e87dbd8eb0770a7bed7cff5535bbf/5C74C2B1/t51.2885-19/s150x150/36054632_224960871562029_8131916779883593728_n.jpg", "username": "gebbytrivena", "full_name": ""}}
+      {
+        "comment": {
+          "created_time": 1504255464,
+          "text": "Sudah kayak chairil anwar ya ponakanku",
+          "username": "iwtan",
+          "profile_picture": "https://scontent-sin6-1.cdninstagram.com/vp/ae53120bb4722e4cbef9bf9d99a1a32b/5C7BCC43/t51.2885-19/s150x150/35617322_1882947792005369_1187511328667860992_n.jpg",
+          "hate_score": {
+            "physic": 0,
+            "race": 0,
+            "religion": 0
+          }
+        }
+      },
+      {
+        "comment": {
+          "created_time": 1504256518,
+          "text": "Ada lumba2 gaa chel?",
+          "username": "silvyanggun",
+          "profile_picture": "https://scontent-sin6-1.cdninstagram.com/vp/c9c66e30cc41888a1e928c9c3873f7b6/5C676992/t51.2885-19/s150x150/43621874_571021223346553_3669966468289658880_n.jpg",
+          "hate_score": {
+            "physic": 0,
+            "race": 0,
+            "religion": 0
+          }
+        }
+      },
+      {
+        "comment": {
+          "created_time": 1504257343,
+          "text": "HUEHEHE keren ya brrti @iwtan ; ada tp dikiiiiit lumba\"nya malu\" sil @silvyanggun ; iya ini aku yg gambar(?) wkakw @stevenandianto",
+          "username": "crahels",
+          "profile_picture": "https://scontent-sin6-1.cdninstagram.com/vp/253b5d2ea2ee4b3c8b605729dbb3a5a0/5C71630F/t51.2885-19/s150x150/28427463_1636182853156624_1578679027089014784_n.jpg",
+          "hate_score": {
+            "physic": 0,
+            "race": 0,
+            "religion": 0
+          }
+        }
+      },
+      {
+        "comment": {
+          "created_time": 1504257422,
+          "text": "Wkwkwk oh ya?? Jam ber kamu kesana? Pas sunset ya? 😂",
+          "username": "silvyanggun",
+          "profile_picture": "https://scontent-sin6-1.cdninstagram.com/vp/c9c66e30cc41888a1e928c9c3873f7b6/5C676992/t51.2885-19/s150x150/43621874_571021223346553_3669966468289658880_n.jpg",
+          "hate_score": {
+            "physic": 0,
+            "race": 0,
+            "religion": 0
+          }
+        }
+      },
+      {
+        "comment": {
+          "created_time": 1504261048,
+          "text": "Pngen kesana:(",
+          "username": "elvinahertanu_008",
+          "profile_picture": "https://scontent-sin6-1.cdninstagram.com/vp/c3c7d425af23dfbdface51865281cc6c/5C754A56/t51.2885-19/s150x150/1661210_1552663505045390_1999571810_a.jpg",
+          "hate_score": {
+            "physic": 0,
+            "race": 0,
+            "religion": 0
+          }
+        }
+      }
     ]
   }
-]
+}
 ```
