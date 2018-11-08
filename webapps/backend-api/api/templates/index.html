@@ -1,6 +1,11 @@
 {% extends "base_generic.html" %}
 
+{% block javascript %}
+{% endblock %}
+
 {% block content %}
+<div class="teams-container">
+  <h1>Meet Our Teams!</h1>
   <div class="teams">
     <div class="team">
       <span class="team-pic">
@@ -29,7 +34,7 @@
     <div class="team">
       <span class="team-pic">
         {% load static %}
-        <img src="{% static 'img/rachel.png' %}">
+        <img src="{% static 'img/dayu.jpg' %}">
       </span>
       <span class="team-name">
         Rachel Sidney Devianti
@@ -39,4 +44,5 @@
       </span>
     </div>
   </div>
+</div>
 {% endblock %}
