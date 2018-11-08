@@ -25,7 +25,11 @@ SECRET_KEY = 'gi16v6pcuz_b76xv=f-b%yxyxzer1butr1vcr(6!@qo%#+@vgu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
+=======
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+>>>>>>> change some endpoints
 
 
 # Application definition

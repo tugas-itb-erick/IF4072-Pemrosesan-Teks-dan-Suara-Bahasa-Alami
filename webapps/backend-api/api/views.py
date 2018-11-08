@@ -49,7 +49,7 @@ def parse_users(users):
     return new_users
 
 def parse_user(user):
-    attr = ["id", "pk", "username", "full_name", "is_private", "profile_picture"]
+    attr = ["id", "pk", "username", "full_name", "is_private", "profile_picture", "edge_owner_to_timeline_media"]
     user_dict = {}
     for key, val in user.items():
         if key in attr:
@@ -58,35 +58,54 @@ def parse_user(user):
 
 def user(request, username): 
     api = create_api_client(request)
-    user_info = api.user_info2(username)
-    user = parse_user(user_info)
-    return HttpResponse(content=json.dumps(user), content_type="application/json")
+    user = api.user_info2(username)
+    return HttpResponse(content=json.dumps(parse_user(user)), content_type="application/json")
 
-def user_feed(request, user_id): 
+def user_media(request, shortcode):
     api = create_api_client(request)
-    user_feed = api.user_feed(user_id) # TODO: Pagination
-    user_feed = parse_user_feed(api, user_feed)
-    # analyzed_feed = analyze_feed(user_feed)
-    return HttpResponse(content=json.dumps(user_feed), content_type="application/json")
+    media = api.media_info2(shortcode)
+    media = parse_user_media(media)
+    return HttpResponse(content=json.dumps(media), content_type="application/json")
 
-def parse_user_feed(api, user_feed):
-    parsed_feed = []
-    # get all media's shortcode & comments
-    for post in user_feed:
-        shortcode = post["node"]["shortcode"]
-        parsed_feed.append({
-            "timestamp": post["node"]["taken_at_timestamp"],
-            "shortcode": shortcode, 
-            "image_url": post["node"]["thumbnail_src"],
-            "caption": post["node"]["caption"]["text"],
-            "type": post["node"]["type"],
-            "comments": api.media_comments(shortcode) # TODO: Pagination
-        })
-    return parsed_feed
+def parse_user_media(media):
+    attr = ["created_time", "shortcode", "display_url"]
+    media_dict = {}
+    for key, val in media.items():
+        if key in attr:
+            media_dict[key] = val
+    media_dict["caption"] = media.get("caption", {}).get("text")
+    media_dict["carousel_display_urls"] = parse_carousel(media.get("carousel_media"))
+    media_dict["edge_media_to_comment"] = parse_comments(media.get("edge_media_to_comment"))
+    return media_dict
 
-def analyze_feed(user_feed):
-    # pake model
-    return user_feed
+def parse_carousel(carousel):
+    return [media.get("display_url") for media in carousel]
+
+def parse_comments(comments):
+    comments_dict = {
+        "count": comments["count"], 
+        "page_info": comments["page_info"]
+    }
+    arr_comments = []
+    for el in comments.get("edges", {}):
+        node = el.get("node", {})
+        comment = {
+            "created_time": node.get("created_at"), 
+            "text": node.get("text"), 
+            "username": node.get("owner", {}).get("username"), 
+            "profile_picture": node.get("owner", {}).get("profile_pic_url")
+        }
+        comment["hate_score"] = analyze_comment(comment["text"])
+        arr_comments.append({"comment": comment})
+    comments_dict["comments"] = arr_comments
+    return comments_dict
+        
+def analyze_comment(text):
+    # gunakan model
+    physic = 0
+    race = 0
+    religion = 0
+    return {"physic": physic, "race": race, "religion": religion}
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):
