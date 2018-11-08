@@ -75,7 +75,8 @@ def parse_edge_timeline_media(edge):
 def user(request, username): 
     api = create_api_client(request)
     user = api.user_info2(username)
-    return HttpResponse(content=json.dumps(parse_user(user)), content_type="application/json")
+    return render(request, 'posts.html', context=parse_user(user))
+    # return HttpResponse(content=json.dumps(parse_user(user)), content_type="application/json")
 
 def user_media(request, shortcode):
     api = create_api_client(request)

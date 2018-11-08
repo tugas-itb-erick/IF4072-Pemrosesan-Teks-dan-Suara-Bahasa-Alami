@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block content %}
+<div class="posts-container">
+    <div class="profile">
+        <div class="profile-left">
+            <span class="profile-pic">
+                <img src="{{ profile_picture }}">
+            </span>
+        </div>
+        <div class="profile-right">
+            <span class="profile-name">
+                {{ full_name }}
+            </span>
+            <span class="profile-username">
+                @{{ username }}
+            </span>
+        </div>
+    </div>
+    <div class="posts">
+        {{ media }}
+        {% for post in edge_owner_to_timeline_media.media %}
+            <div class="post-pic">
+                <img src="{{ post.display_url }}">
+                <div class="middle">
+                    <a class="text" href="/api/media/{{ post.shortcode }}">analyse</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

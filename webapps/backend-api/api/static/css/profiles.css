@@ -19,7 +19,7 @@
     margin-top: 30px; 
 }
 
-.profiles-row {
+.profiles-container .profiles-row {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -27,7 +27,7 @@
     flex-wrap: wrap;
 }
 
-.profiles-row .profile {
+.profiles-container .profiles-row .profile {
     width: 250px;
     height: 250px;
     display: flex;
@@ -38,18 +38,18 @@
     margin-bottom: 30px;
 }
 
-.profiles-row .profile .profile-pic {
+.profiles-container .profiles-row .profile .profile-pic {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
 }
 
-.profiles-row .profile .profile-pic img {
+.profiles-container .profiles-row .profile .profile-pic img {
     border-radius: 50%;
 }
 
-.profiles-row .profile .profile-name {
+.profiles-container .profiles-row .profile .profile-name {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -57,7 +57,7 @@
     margin-top: 30px;
 }
 
-.profiles-row .profile .profile-username {
+.profiles-container .profiles-row .profile .profile-username {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
