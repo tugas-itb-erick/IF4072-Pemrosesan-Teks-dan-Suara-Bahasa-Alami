@@ -52,12 +52,14 @@ def parse_users(users):
     return new_users
 
 def parse_user(user):
-    attr = ["id", "pk", "username", "full_name", "is_private", "profile_picture"]
+    attr = ["username", "full_name", "is_private", "profile_picture"]
     user_dict = {}
     for key, val in user.items():
         if key in attr:
             user_dict[key] = val
-    user_dict["edge_owner_to_timeline_media"] = parse_edge_timeline_media(user.get("edge_owner_to_timeline_media", {}))
+    key_edge = "edge_owner_to_timeline_media"
+    if key_edge in user.keys():
+        user_dict[key_edge] = parse_edge_timeline_media(user.get(key_edge, {}))
     return user_dict
 
 def parse_edge_timeline_media(edge):
