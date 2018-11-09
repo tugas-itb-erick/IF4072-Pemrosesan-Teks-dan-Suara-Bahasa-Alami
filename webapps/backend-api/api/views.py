@@ -100,8 +100,8 @@ def parse_carousel(carousel):
 
 def parse_comments(comments):
     comments_dict = {
-        "count": comments["count"], 
-        "page_info": comments["page_info"]
+        "count": comments.get("count"), 
+        "page_info": comments.get("page_info")
     }
     arr_comments = []
     for el in comments.get("edges", {}):
@@ -112,7 +112,7 @@ def parse_comments(comments):
             "username": node.get("owner", {}).get("username"), 
             "profile_picture": node.get("owner", {}).get("profile_pic_url")
         }
-        comment["hate_score"] = analyze_comment(comment["text"])
+        comment["hate_score"] = analyze_comment(comment.get("text"))
         arr_comments.append({"comment": comment})
     comments_dict["comments"] = arr_comments
     return comments_dict
