@@ -118,7 +118,9 @@ def parse_comments(comments):
     return comments_dict
         
 def analyze_comment(text):
-    return detection.predict_aspect(text)
+    aspect = detection.predict_aspect(text)
+    hate = detection.predict_hate(text)
+    return aspect
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):

@@ -66,12 +66,12 @@ def normalizer(text):
     return concate
 
 def predict_aspect(text):
+    # 0: not given
+    # 1: exist
     text = normalizer(text)
     tokens = nltk.WhitespaceTokenizer().tokenize(text)
-    
     vecs = build_Word_Vector(tokens, 200)
     vecs = vecs.reshape((1, 1, 200))
-
     aspect = {}
     aspect['physic'] = int(round(model_ad_physics.predict(vecs)[0][0]))
     aspect['race'] = int(round(model_ad_race.predict(vecs)[0][0]))
@@ -81,16 +81,18 @@ def predict_aspect(text):
     print(model_ad_religion.predict(vecs)[0][0])
     return aspect
 
-# def predict_hate(text):
-#     text = normalizer(text)
-#     tokens = nltk.WhitespaceTokenizer().tokenize(text)
-#     vecs = build_Word_Vector(tokens, 200)
-#     vecs_reshape = vecs.reshape((1, 1, 200))
-#     aspect = {}
-#     aspect['physic'] = int(round(model_hd_physics.predict(vecs_reshape)[0][0]))
-#     aspect['race'] = int(round(model_hd_race.predict(vecs)[0]))
-#     aspect['religion'] = int(round(model_hd_religion.predict(vecs)[0]))
-#     return aspect
+def predict_hate(text):
+    # 0: no hate
+    # 1: hate
+    text = normalizer(text)
+    tokens = nltk.WhitespaceTokenizer().tokenize(text)
+    vecs = build_Word_Vector(tokens, 200)
+    vecs_reshape = vecs.reshape((1, 1, 200))
+    aspect = {}
+    aspect['physic'] = int(round(model_hd_physics.predict(vecs_reshape)[0][0]))
+    aspect['race'] = int(round(model_hd_race.predict(vecs)[0]))
+    aspect['religion'] = int(round(model_hd_religion.predict(vecs)[0]))
+    return aspect
 
 CONTRACTION_MAP = {"ain't": "is not", "aren't": "are not","can't": "cannot", 
                    "can't've": "cannot have", "'cause": "because", "could've": "could have", 
