@@ -17,9 +17,9 @@
         {% for comment in edge_media_to_comment.comments %}
             <div class="comment">
                 <div class="comment-left">
-                    <span class="comment-pic">
+                    <a href="/user/{{ comment.comment.username }}"><span class="comment-pic">
                         <img src="{{ comment.comment.profile_picture }}">
-                    </span>
+                    </span></a>
                 </div>
                 <div class="comment-middle">
                     <span class="comment-username">
@@ -29,10 +29,10 @@
                         {{ comment.comment.text }}
                     </span>
                 </div>
-                <div class="comment-right">
-                    {% if comment.comment.hate_score.religion %}
+                <div class="comment-right">                   
+                    {% if comment.comment.hate_score.physic %}
                         {% load static %}
-                        <img src="{% static 'img/religion.png' %}" class="analysis-bad">
+                        <img src="{% static 'img/physic.png' %}" class="analysis-bad">
                     {% else %}
                         {% load static %}
                         <img src="{% static 'img/good.png' %}" class="analysis-good">
@@ -45,10 +45,10 @@
                         {% load static %}    
                         <img src="{% static 'img/good.png' %}" class="analysis-good">
                     {% endif %}
-                    
-                    {% if comment.comment.hate_score.physic %}
+                
+                    {% if comment.comment.hate_score.religion %}
                         {% load static %}
-                        <img src="{% static 'img/physic.png' %}" class="analysis-bad">
+                        <img src="{% static 'img/religion.png' %}" class="analysis-bad">
                     {% else %}
                         {% load static %}
                         <img src="{% static 'img/good.png' %}" class="analysis-good">

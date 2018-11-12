@@ -9,18 +9,14 @@
     <div class="profiles-row">
         {% for profile in profiles %}
             <div class="profile">
-                <span class="profile-pic">
+                <a href="/user/{{ profile.username }}"><span class="profile-pic">
                     <img src="{{ profile.profile_picture }}">
-                </span>
+                </span></a>
                 <span class="profile-name">
                     {{ profile.full_name }}
                 </span>
                 <span class="profile-username">
-                    {% if profile.is_private %}
-                        @{{ profile.username }}
-                    {% else %}
-                        <a href="/user/{{ profile.username }}">@{{ profile.username }}</a>
-                    {% endif %}
+                    <a href="/user/{{ profile.username }}">@{{ profile.username }}</a>
                 </span>
             </div>
         {% endfor %}
