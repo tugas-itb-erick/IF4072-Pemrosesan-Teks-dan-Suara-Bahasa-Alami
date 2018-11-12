@@ -29,29 +29,54 @@
                         {{ comment.comment.text }}
                     </span>
                 </div>
+<<<<<<< HEAD
                 <div class="comment-right">                   
                     {% if comment.comment.hate_score.physic %}
                         {% load static %}
                         <img src="{% static 'img/physic.png' %}" class="analysis-bad">
                     {% else %}
+=======
+                <div class="comment-right">
+                    {% if comment.comment.hate_score.religion == 1 %}
+                        {% load static %}
+                        <img src="{% static 'img/religion.png' %}" class="analysis-bad">
+                    {% elif comment.comment.hate_score.religion == 0 %}
+>>>>>>> change code in front end
                         {% load static %}
                         <img src="{% static 'img/good.png' %}" class="analysis-good">
+                    {% else %}
+                        {% load static %}
+                        <img src="{% static 'img/good.png' %}" class="analysis-neutral">
                     {% endif %}
 
-                    {% if comment.comment.hate_score.race %}
+                    {% if comment.comment.hate_score.race == 1 %}
                         {% load static %}
                         <img src="{% static 'img/race.png' %}" class="analysis-bad">
-                    {% else %}
+                    {% elif comment.comment.hate_score.race == 0 %}
                         {% load static %}    
                         <img src="{% static 'img/good.png' %}" class="analysis-good">
+                    {% else %}
+                        {% load static %}    
+                        <img src="{% static 'img/good.png' %}" class="analysis-neutral">
                     {% endif %}
+<<<<<<< HEAD
                 
                     {% if comment.comment.hate_score.religion %}
                         {% load static %}
                         <img src="{% static 'img/religion.png' %}" class="analysis-bad">
                     {% else %}
+=======
+                    
+                    {% if comment.comment.hate_score.physic == 1 %}
+                        {% load static %}
+                        <img src="{% static 'img/physic.png' %}" class="analysis-bad">
+                    {% elif comment.comment.hate_score.physic == 0 %}
+>>>>>>> change code in front end
                         {% load static %}
                         <img src="{% static 'img/good.png' %}" class="analysis-good">
+                    {% else %}
+                        {% load static %}
+                        <img src="{% static 'img/good.png' %}" class="analysis-neutral">
                     {% endif %}
                 </div>
             </div>
