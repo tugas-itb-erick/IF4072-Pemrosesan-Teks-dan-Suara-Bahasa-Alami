@@ -112,17 +112,10 @@ def parse_comments(comments):
             "username": node.get("owner", {}).get("username"), 
             "profile_picture": node.get("owner", {}).get("profile_pic_url")
         }
-        comment["hate_score"] = analyze_comment(comment.get("text"))
+        # comment["hate_score"] = analyze_comment(comment.get("text"))
         arr_comments.append({"comment": comment})
     comments_dict["comments"] = arr_comments
     return comments_dict
-        
-def analyze_comment(text):
-    # gunakan model
-    physic = 0
-    race = 0
-    religion = 0
-    return {"physic": physic, "race": race, "religion": religion}
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):

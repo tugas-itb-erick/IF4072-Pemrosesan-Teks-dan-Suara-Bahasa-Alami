@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'api/templates')
+            os.path.join(BASE_DIR, 'app/templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -74,7 +74,7 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "api/static")
+    os.path.join(BASE_DIR, "app/static")
 ]
 
 WSGI_APPLICATION = 'hate_speech_analyzer.wsgi.application'
