@@ -90,7 +90,11 @@ def parse_user_media(media):
     for key, val in media.items():
         if key in attr:
             media_dict[key] = val
-    media_dict["caption"] = media.get("caption", {}).get("text")
+    media_dict["caption"] = media.get("caption", {})
+    if media_dict["caption"] != None:
+        media_dict["caption"] = media_dict["caption"].get("text")
+    else:
+        media_dict["caption"] = ""
     media_dict["carousel_display_urls"] = parse_carousel(media.get("carousel_media", {}))
     media_dict["edge_media_to_comment"] = parse_comments(media.get("edge_media_to_comment", {}))
     return media_dict
@@ -120,7 +124,7 @@ def parse_comments(comments):
 def analyze_comment(text):
     aspect = detection.predict_aspect(text)
     hate = detection.predict_hate(text)
-    return aspect
+    return hate
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):

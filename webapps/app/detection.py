@@ -76,9 +76,6 @@ def predict_aspect(text):
     aspect['physic'] = int(round(model_ad_physics.predict(vecs)[0][0]))
     aspect['race'] = int(round(model_ad_race.predict(vecs)[0][0]))
     aspect['religion'] = int(round(model_ad_religion.predict(vecs)[0][0]))
-    print(model_ad_physics.predict(vecs)[0][0])
-    print(model_ad_race.predict(vecs)[0][0])
-    print(model_ad_religion.predict(vecs)[0][0])
     return aspect
 
 def predict_hate(text):
@@ -92,6 +89,9 @@ def predict_hate(text):
     aspect['physic'] = int(round(model_hd_physics.predict(vecs_reshape)[0][0]))
     aspect['race'] = int(round(model_hd_race.predict(vecs)[0]))
     aspect['religion'] = int(round(model_hd_religion.predict(vecs)[0]))
+    print(model_hd_physics.predict(vecs_reshape)[0][0])
+    print(model_hd_race.predict(vecs)[0])
+    print(model_hd_religion.predict(vecs)[0])
     return aspect
 
 CONTRACTION_MAP = {"ain't": "is not", "aren't": "are not","can't": "cannot", 
@@ -143,9 +143,9 @@ model_ad_physics = pickle.load(open(pwd + '/trained_models/model_ad_physics.sav'
 model_ad_race = pickle.load(open(pwd + '/trained_models/model_ad_race.sav', 'rb'))
 model_ad_religion = pickle.load(open(pwd + '/trained_models/model_ad_religion.sav', 'rb'))
 
-model_hd_physics = models.load_model(pwd + '/trained_models/bilstm_hd_physics.model')
-model_hd_race = joblib.load(pwd + '/trained_models/mlp_hd_race.model')
-model_hd_religion = joblib.load(pwd + '/trained_models/mlp_hd_religion.model')
+model_hd_physics = models.load_model(pwd + '/trained_models/model_hd_physics.sav')
+model_hd_race = joblib.load(pwd + '/trained_models/model_hd_race.sav')
+model_hd_religion = joblib.load(pwd + '/trained_models/model_hd_religion.sav')
 
-model_w2v = pickle.load(open(pwd + '/trained_models/word2vec.pre', 'rb'))
-tfidf = pickle.load(open(pwd + '/trained_models/tfidf.pre', 'rb'))
+model_w2v = pickle.load(open(pwd + '/trained_models/model_w2v.sav', 'rb'))
+tfidf = pickle.load(open(pwd + '/trained_models/tfidf.sav', 'rb'))
