@@ -11,11 +11,10 @@ def build_Word_Vector(tokens, size):
     vec = np.zeros(size).reshape((1, size))
     count = 0.
     for word in tokens:
-        print(word)
         try:
             vec += model_w2v[word].reshape((1, size)) * tfidf[word]
             count += 1.
-        except (KeyError, IndexError): 
+        except (KeyError): 
             continue
     if count != 0:
         vec /= count
@@ -76,6 +75,7 @@ def predict_aspect(text):
     aspect['physic'] = int(round(model_ad_physics.predict(vecs)[0][0]))
     aspect['race'] = int(round(model_ad_race.predict(vecs)[0][0]))
     aspect['religion'] = int(round(model_ad_religion.predict(vecs)[0][0]))
+    print("ad:", model_ad_physics.predict(vecs)[0][0], model_ad_race.predict(vecs)[0][0], model_ad_religion.predict(vecs)[0][0])
     return aspect
 
 def predict_hate(text):
@@ -89,9 +89,7 @@ def predict_hate(text):
     aspect['physic'] = int(round(model_hd_physics.predict(vecs_reshape)[0][0]))
     aspect['race'] = int(round(model_hd_race.predict(vecs)[0]))
     aspect['religion'] = int(round(model_hd_religion.predict(vecs)[0]))
-    print(model_hd_physics.predict(vecs_reshape)[0][0])
-    print(model_hd_race.predict(vecs)[0])
-    print(model_hd_religion.predict(vecs)[0])
+    print("hd:", model_hd_physics.predict(vecs_reshape)[0][0], model_hd_race.predict(vecs)[0], model_hd_religion.predict(vecs)[0])    
     return aspect
 
 CONTRACTION_MAP = {"ain't": "is not", "aren't": "are not","can't": "cannot", 

@@ -122,6 +122,7 @@ def parse_comments(comments):
     return comments_dict
         
 def analyze_comment(text):
+    print(text)
     aspect = detection.predict_aspect(text)
     hate = detection.predict_hate(text)
     result = {}

@@ -10,11 +10,9 @@ to analyze hate speech from comments.
 ### 1. With Docker
 Run ```docker-compose up```. The API will be running on 0.0.0.0:8000.  
 ### 2. Without Docker
-Run```python manage.py runserver <HOST:PORT>```. The API will be running on HOST:PORT. Do not forget to install the dependencies. 
+Run```python manage.py runserver <HOST:PORT> --nothreading```. The API will be running on HOST:PORT. Do not forget to install the dependencies. 
 #### Dependencies
-1. [Python>=3](https://www.python.org/downloads/)
-2. [Django>=2](https://www.djangoproject.com/download/)
-3. [instagram_private_api==1.5.7](https://github.com/ping/instagram_private_api#install)
+See requirements.txt. 
 
 ## API Reference
 1. GET ```/api/search?query=[string]&type=[username|tag]``` - Perform search by name/tag
