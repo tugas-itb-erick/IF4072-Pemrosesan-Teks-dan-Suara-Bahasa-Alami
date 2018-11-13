@@ -124,7 +124,13 @@ def parse_comments(comments):
 def analyze_comment(text):
     aspect = detection.predict_aspect(text)
     hate = detection.predict_hate(text)
-    return hate
+    result = {}
+    for key, aval in aspect.items():
+        if aval == 0:
+            result[key] = -1
+        else:
+            result[key] = hate[key]
+    return result
 
 def create_api_client(request):
     if request.COOKIES.get("hate_speech_analyzer"):

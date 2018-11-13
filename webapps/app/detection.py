@@ -143,9 +143,9 @@ model_ad_physics = pickle.load(open(pwd + '/trained_models/model_ad_physics.sav'
 model_ad_race = pickle.load(open(pwd + '/trained_models/model_ad_race.sav', 'rb'))
 model_ad_religion = pickle.load(open(pwd + '/trained_models/model_ad_religion.sav', 'rb'))
 
-model_hd_physics = models.load_model(pwd + '/trained_models/model_hd_physics.sav')
-model_hd_race = joblib.load(pwd + '/trained_models/model_hd_race.sav')
-model_hd_religion = joblib.load(pwd + '/trained_models/model_hd_religion.sav')
+model_hd_physics = pickle.load(open(pwd + '/trained_models/model_hd_physics.sav', 'rb'))
+model_hd_race = pickle.load(open(pwd + '/trained_models/model_hd_race.sav', 'rb'))
+model_hd_religion = pickle.load(open(pwd + '/trained_models/model_hd_religion.sav', 'rb'))
 
 model_w2v = pickle.load(open(pwd + '/trained_models/model_w2v.sav', 'rb'))
 tfidf = pickle.load(open(pwd + '/trained_models/tfidf.sav', 'rb'))
