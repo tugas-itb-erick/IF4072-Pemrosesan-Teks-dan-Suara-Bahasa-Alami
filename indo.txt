@@ -1,0 +1,32 @@
+---------BEGIN----------
+
+pasang
+alarm
+hapus
+nyalakan	matikan
+
+---
+
+pukul		jam
+setengah	seperempat
+kurang		lebih
+
+---
+
+nol		satu
+dua		tiga
+empat	lima
+
+---
+
+enam	tujuh
+delapan	sembilan
+sepuluh	sebelas
+belas	puluh
+
+---------END-----------
+
+pasang alarm (pukul/jam) dua belas (lebih/kurang) tiga puluh
+matikan alarm --||--
+nyalakan alarm --||--
+hapus alarm --||--
