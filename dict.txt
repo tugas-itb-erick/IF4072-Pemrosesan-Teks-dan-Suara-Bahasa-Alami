@@ -1,25 +1,26 @@
-PASANG		pasang
-ALARM		alarm
-HAPUS		hapus
-NYALAKAN	nyalakan
-MATIKAN		matikan
-PUKUL		pukul
-JAM			jam
-SETENGAH	setengah
-SEPEREMPAT	seperempat
-KURANG		kurang
-LEBIH		lebih
-NOL			nol
-SATU		satu
-DUA			dua
-TIGA		tiga
-EMPAT		empat
-LIMA		lima
-ENAM		enam
-TUJUH		tujuh
-DELAPAN		delapan
-SEMBILAN	sembilan
-SEPULUH		sepuluh
-SEBELAS		sebelas
-BELAS		belas
-PULUH		puluh
+PASANG		[pasang] pasang
+ALARM		[alarm] alarm
+HAPUS		[hapus] hapus
+SIL			[sil] sil
+NYALAKAN	[nyalakan] nyalakan
+MATIKAN		[matikan] matikan
+PUKUL		[pukul] pukul
+JAM			[jam] jam
+SETENGAH	[setengah] setengah
+SEPEREMPAT	[seperempat] seperempat
+KURANG		[kurang] kurang
+LEBIH		[lebih] lebih
+NOL			[nol] nol
+SATU		[satu] satu
+DUA			[dua] dua
+TIGA		[tiga] tiga
+EMPAT		[empat] empat
+LIMA		[lima] lima
+ENAM		[enam] enam
+TUJUH		[tujuh] tujuh
+DELAPAN		[delapan] delapan
+SEMBILAN	[sembilan] sembilan
+SEPULUH		[sepuluh] sepuluh
+SEBELAS		[sebelas] sebelas
+BELAS		[belas] belas
+PULUH		[puluh] puluh

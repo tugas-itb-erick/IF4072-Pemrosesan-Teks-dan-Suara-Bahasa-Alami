@@ -1,0 +1,3 @@
+data/test/word_1.sig data/test/mfcc/word_1.mfcc
+data/test/3dewita_0_test.sig data/test/mfcc/3dewita_0_test.sig.mfcc
+data/test/test_0.sig data/test/mfcc/test_0.mfcc

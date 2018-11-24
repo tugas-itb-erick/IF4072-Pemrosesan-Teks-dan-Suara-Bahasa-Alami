@@ -1,0 +1,122 @@
+VERSION=1.0
+N=28   L=92   
+I=0    W=!NULL               
+I=1    W=!NULL               
+I=2    W=!NULL               
+I=3    W=SIL                 
+I=4    W=SIL                 
+I=5    W=NOL                 
+I=6    W=!NULL               
+I=7    W=SATU                
+I=8    W=DUA                 
+I=9    W=TIGA                
+I=10   W=EMPAT               
+I=11   W=LIMA                
+I=12   W=SEPULUH             
+I=13   W=SEBELAS             
+I=14   W=BELAS               
+I=15   W=PULUH               
+I=16   W=PASANG              
+I=17   W=HAPUS               
+I=18   W=NYALAKAN            
+I=19   W=MATIKAN             
+I=20   W=PUKUL               
+I=21   W=JAM                 
+I=22   W=KURANG              
+I=23   W=LEBIH               
+I=24   W=SETENGAH            
+I=25   W=SEPEREMPAT          
+I=26   W=SIL                 
+I=27   W=SIL                 
+J=0     S=0    E=1    
+J=1     S=3    E=1    
+J=2     S=6    E=2    
+J=3     S=27   E=2    
+J=4     S=1    E=3    
+J=5     S=1    E=4    
+J=6     S=4    E=4    
+J=7     S=6    E=4    
+J=8     S=1    E=5    
+J=9     S=4    E=5    
+J=10    S=6    E=5    
+J=11    S=5    E=6    
+J=12    S=7    E=6    
+J=13    S=8    E=6    
+J=14    S=9    E=6    
+J=15    S=10   E=6    
+J=16    S=11   E=6    
+J=17    S=12   E=6    
+J=18    S=13   E=6    
+J=19    S=14   E=6    
+J=20    S=15   E=6    
+J=21    S=16   E=6    
+J=22    S=17   E=6    
+J=23    S=18   E=6    
+J=24    S=19   E=6    
+J=25    S=20   E=6    
+J=26    S=21   E=6    
+J=27    S=22   E=6    
+J=28    S=23   E=6    
+J=29    S=24   E=6    
+J=30    S=25   E=6    
+J=31    S=26   E=6    
+J=32    S=1    E=7    
+J=33    S=4    E=7    
+J=34    S=6    E=7    
+J=35    S=1    E=8    
+J=36    S=4    E=8    
+J=37    S=6    E=8    
+J=38    S=1    E=9    
+J=39    S=4    E=9    
+J=40    S=6    E=9    
+J=41    S=1    E=10   
+J=42    S=4    E=10   
+J=43    S=6    E=10   
+J=44    S=1    E=11   
+J=45    S=4    E=11   
+J=46    S=6    E=11   
+J=47    S=1    E=12   
+J=48    S=4    E=12   
+J=49    S=6    E=12   
+J=50    S=1    E=13   
+J=51    S=4    E=13   
+J=52    S=6    E=13   
+J=53    S=1    E=14   
+J=54    S=4    E=14   
+J=55    S=6    E=14   
+J=56    S=1    E=15   
+J=57    S=4    E=15   
+J=58    S=6    E=15   
+J=59    S=1    E=16   
+J=60    S=4    E=16   
+J=61    S=6    E=16   
+J=62    S=1    E=17   
+J=63    S=4    E=17   
+J=64    S=6    E=17   
+J=65    S=1    E=18   
+J=66    S=4    E=18   
+J=67    S=6    E=18   
+J=68    S=1    E=19   
+J=69    S=4    E=19   
+J=70    S=6    E=19   
+J=71    S=1    E=20   
+J=72    S=4    E=20   
+J=73    S=6    E=20   
+J=74    S=1    E=21   
+J=75    S=4    E=21   
+J=76    S=6    E=21   
+J=77    S=1    E=22   
+J=78    S=4    E=22   
+J=79    S=6    E=22   
+J=80    S=1    E=23   
+J=81    S=4    E=23   
+J=82    S=6    E=23   
+J=83    S=1    E=24   
+J=84    S=4    E=24   
+J=85    S=6    E=24   
+J=86    S=1    E=25   
+J=87    S=4    E=25   
+J=88    S=6    E=25   
+J=89    S=6    E=26   
+J=90    S=6    E=27   
+J=91    S=27   E=27   
