@@ -1,0 +1,35 @@
+### Inisialisasi HMM
+
+nama_label -> pasang, matikan, dll. Run untuk semua label
+
+HInit -A -D -T 1 -S trainlist.txt -M model/hmm0 -H model/proto/nama_label -l name_label -L data/train/lab/ model/proto/nama_label
+
+Contoh:
+	HInit -A -D -T 1 -S trainlist.txt -M model/hmm0 -H model/proto/pasang -l pasang -L data/train/lab/ model/proto/pasang
+	HInit -A -D -T 1 -S trainlist.txt -M model/hmm0 -H model/proto/alarm -l alarm -L data/train/lab/ model/proto/alarm
+	dst dst
+
+### Train HMM
+
+nama_label -> pasang, matikan, dll. Run untuk semua label, untuk setiap label run sebanyak jumlah iterasi
+
+HRest -A -D -T 1 -S trainlist.txt -M model/hmm1 -H model/hmm0/nama_label -l nama_label -L data/train/lab/ model/hmm0/nama_label
+
+Contoh: (Misal jumlah iterasi 20)
+	HRest -A -D -T 1 -S trainlist.txt -M model/hmm1 -H model/hmm0/pasang -l pasang -L data/train/lab/ model/hmm0/pasang  ->  Iterasi pertama label pasang
+	HRest -A -D -T 1 -S trainlist.txt -M model/hmm2 -H model/hmm1/pasang -l pasang -L data/train/lab/ model/hmm1/pasang  ->  Iterasi kedua label pasang
+	dst
+	HRest -A -D -T 1 -S trainlist.txt -M model/hmm20 -H model/hmm19/pasang -l pasang -L data/train/lab/ model/hmm19/pasang  ->  Iterasi terakhir label pasang
+
+	HRest -A -D -T 1 -S trainlist.txt -M model/hmm1 -H model/hmm0/alarm -l alarm -L data/train/lab/ model/hmm0/alarm  ->  Iterasi pertama label alarm
+	dst dst dst
+
+### Predict data test
+
+trainlist.txt -> data test (sementara pake data train)
+rec.mlf -> file tmpt nyimpen hasil prediksi
+Karena 20 iterasi pake model di model/hmm20
+
+HVite -A -D -T 1 -H -S trainlist.txt model/hmm20/pasang -H model/hmm20/alarm -H model/hmm20/hapus -H model/hmm20/nyalakan -H model/hmm20/matikan -H model/hmm20/pukul -H model/hmm20/jam -H model/hmm20/setengah -H model/hmm20/seperempat -H model/hmm20/kurang -H model/hmm20/lebih -H model/hmm20/nol -H model/hmm20/satu -H model/hmm20/dua -H model/hmm20/tiga -H model/hmm20/empat -H model/hmm20/lima -H model/hmm20/enam -H model/hmm20/tujuh -H model/hmm20/delapan -H model/hmm20/sembilan -H model/hmm20/sepuluh -H model/hmm20/sebelas -H model/hmm20/belas -H model/hmm20/puluh -H model/hmm20/sil -i rec.mlf -w net2.slf dict.txt hmmlist.txt
+
+
