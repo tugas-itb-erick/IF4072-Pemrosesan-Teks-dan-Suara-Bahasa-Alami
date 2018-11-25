@@ -1,0 +1,15 @@
+HResults -A -D -T 1 -e ??? sil -I ref.mlf hmmlist.txt rec.mlf 
+
+No HTK Configuration Parameters Set
+
+====================== HTK Results Analysis =======================
+  Date: Sun Nov 25 16:36:20 2018
+  Ref : ref.mlf
+  Rec : rec.mlf
+------------------------ Overall Results --------------------------
+SENT: %Correct=14.58 [H=7, S=41, N=48]
+WORD: %Corr=80.00, Acc=49.33 [H=240, D=0, S=60, I=92, N=300]
+===================================================================
+
+No HTK Configuration Parameters Set
+
